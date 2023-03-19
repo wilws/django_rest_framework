@@ -13,5 +13,5 @@ from home.permission import IsStaffEditorPermission
 class TileViewSet(viewsets.ModelViewSet):
     queryset = Tile.objects.all()
     serializer_class = TileSerializer
-    authentication_class=[authentication.SessionAuthentication,]
+    authentication_class=[authentication.SessionAuthentication]
     permission_classes=[permissions.IsAdminUser,IsStaffEditorPermission]

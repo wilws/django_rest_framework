@@ -15,7 +15,7 @@ class TaskViewSet(viewsets.ModelViewSet):
 
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    authentication_class=[authentication.SessionAuthentication,]
+    authentication_class=[authentication.SessionAuthentication]
     permission_classes=[permissions.IsAdminUser,IsStaffEditorPermission]
 
                      
