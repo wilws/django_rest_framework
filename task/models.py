@@ -14,4 +14,4 @@ class Task(models.Model):
         ('diary', 'Diary'),
     )
     type = models.CharField(choices=TYPE_CHOICES, max_length=20)
-    tile = models.ForeignKey(Tile, on_delete=models.CASCADE)
+    tile = models.ForeignKey(Tile, related_name='tasks', on_delete=models.CASCADE)

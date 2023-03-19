@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 # /api/tile
-urlpatterns = [
-    path('',views.TaskListCreateAPIView.as_view())
-]
+# urlpatterns = [
+#     path('',views.TaskListCreateAPIView.as_view(),"view-task")
+# ]
