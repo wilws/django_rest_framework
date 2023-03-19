@@ -1,0 +1,6 @@
+/venv
+
+
+# backend folder
+.env
+db.sqlite3
