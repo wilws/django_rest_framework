@@ -13,10 +13,97 @@
 <br>
 <br>
 
+# Installation
+
+## Step 1 - Clone the Project
+```
+ $ git clone git@github.com:wilws/django_rest_framework.git
+```
+<br>
+<br>
+
+
+## Step 2 - Create Virtual Environment
+```
+ $ cd django_rest_framework
+ $ python3 -m venv venv
+```
+
+a "venv" folder will be created
+<br>
+<br>
+<br>
+
+
+## Step 3 - Activate Virtual Environment
+```
+ $ source venv/bin/activate
+```
+<br>
+<br>
+
+
+
+## Step 4 - Install Package
+```
+ $ pip install -r requirements.txt
+```
+<br>
+<br>
+
+## Step 5 - Run Server
+```
+ $ python manage.py runserver
+
+ or 
+
+ $ python3 manage.py runserver
+```
+<br>
+<br>
+
+## Step 6 - Conflict Handling
+
+It may have error shown like :
+```
+<you-current-folder> /venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 24, in <module>
+    from django.db.models.fields import FieldDoesNotExist
+ImportError: cannot import name 'FieldDoesNotExist' from 'django.db.models.fields'
+
+```
+"venv" is the folder created in step 2.
+
+Just open "/venv/lib/python3.10/site-packages/rest_framework/serializers.py" and amend like below:
+
+
+```diff
+#line 24 of serializers.py
+
+-from django.db.models.fields import FieldDoesNotExist
++from django.core.exceptions import FieldDoesNotExist
+
+```
+
+It should work fine as follows :
+```
+$ python3 manage.py runserver
+
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 19, 2023 - 23:38:58
+Django version 3.2, using settings 'home.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+```
 
 
 <br>
 <br>
+<br>
+
+# App Introduction
 
 ## API Routes
 task : "http://localhost/api/task/" <br>
@@ -39,7 +126,7 @@ Account 2
 - password : **123qwe!@#** <br> 
 - Feature : Can Edit all “Task” and “Tile” items
 
-Please go to [admin page]("http://localhost/admin/") for login
+If login dialog doest not pop-up, please go to [admin page]("http://127.0.0.1:8000/admin/") for login
 
 <br>
 <br>
@@ -106,7 +193,7 @@ Output :
 <br>
 <br>
 
-## 4) Many-to-one relationship. Tile item contains related tasks 
+## 3) Many-to-one relationship. Tile item contains related tasks 
 
 
 ```diff
