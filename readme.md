@@ -169,7 +169,7 @@ def get_url(self, obj):
         return reverse('task-detail',kwargs={"pk": obj.pk}, request=request)
 
 
------------------------------------------
+
 Output :
 
  {
